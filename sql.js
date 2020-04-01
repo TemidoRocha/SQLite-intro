@@ -6,7 +6,8 @@ Returns a SQL query string that will create the Country table with four columns:
 */
 
 const createCountryTable = () => {
-  return `CREATE TABLE Country (
+  return `CREATE TABLE 'Country' (
+      id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
       name TEXT NOT NULL,
       code TEXT NOT NULL,
       gdp INTEGER,
@@ -19,17 +20,17 @@ Returns a SQL query string that will create the GoldMedal table with ten columns
 */
 
 const createGoldMedalTable = () => {
-  return `CREATE TABLE GoldMedal (
+  return `CREATE TABLE 'GoldMedal' (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   year TEXT NOT NULL,
-  city TEXT REQUIRED,
-  season TEXT REQUIRED,
-  name TEXT REQUIRED,
-  country TEXT REQUIRED,
-  gender TEXT REQUIRED,
-  sport TEXT REQUIRED,
-  discipline TEXT REQUIRED,
-  event TEXT REQUIRED
+  city TEXT NOT NULL,
+  season TEXT NOT NULL,
+  name TEXT NOT NULL,
+  country TEXT NOT NULL,
+  gender TEXT NOT NULL,
+  sport TEXT NOT NULL,
+  discipline TEXT NOT NULL,
+  event TEXT NOT NULL
   );`;
 };
 
@@ -38,7 +39,9 @@ Returns a SQL query string that will find the number of gold medals for the give
 */
 
 const goldMedalNumber = country => {
-  return;
+  return `SELECT COUNT(*)
+  FROM GoldMedal
+  WHERE country= '${country}'`;
 };
 
 /*
@@ -47,7 +50,8 @@ won the most summer medals, along with the number of medals aliased to 'count'.
 */
 
 const mostSummerWins = country => {
-  return;
+  return `SELECT COUNT(*)
+  FROM `;
 };
 
 /*
